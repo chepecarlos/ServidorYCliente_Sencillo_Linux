@@ -1,9 +1,3 @@
-/*
-* Javier Abellan, 20 Jun 2000
-*
-* Programa Servidor de socket INET, como ejemplo de utilizacion de las
-* funciones de sockets.
-*/
 #include <Socket_Servidor.h>
 #include <Socket.h>
 #include <string.h>
@@ -28,7 +22,10 @@ main ()
 		printf ("No se puede abrir socket servidor\n");
 		exit (-1);
 	}
-
+	int i;
+	for(i=1;;i++){
+		printf ("Esta es la ves %i de la conexion\n", i);	
+	
 	/*
 	* Se espera un cliente que quiera conectarse
 	*/
@@ -43,7 +40,8 @@ main ()
 	* Se lee la informacion del cliente, suponiendo que va a enviar 
 	* 5 caracteres.
 	*/
-	Lee_Socket (Socket_Cliente, Cadena, 5);
+	
+	Lee_Socket (Socket_Cliente, Cadena, 100);
 
 	/*
 	* Se escribe en pantalla la informacion que se ha recibido del
@@ -56,11 +54,12 @@ main ()
 	* de la cadena es 5 letras + \0 al final de la cadena = 6 caracteres
 	*/
 	strcpy (Cadena, "Adios");
-	Escribe_Socket (Socket_Cliente, Cadena, 6);
-
+	Escribe_Socket (Socket_Cliente, Cadena, 100);
+	
 	/*
 	* Se cierran los sockets
 	*/
 	close (Socket_Cliente);
+	}
 	close (Socket_Servidor);
 }

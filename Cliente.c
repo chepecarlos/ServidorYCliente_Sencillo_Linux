@@ -1,9 +1,3 @@
-/*
-* Javier Abellan, 20 Jun 2000
-*
-* Programa Cliente de un socket INET, como ejemplo de utilizacion
-* de las funciones de sockets
-*/
 #include <stdio.h>
 #include <Socket_Cliente.h>
 #include <Socket.h>
@@ -15,6 +9,7 @@ main ()
 	*/
 	int Socket_Con_Servidor;
 	char Cadena[100];
+	char mensaje[100];
 
 	/*
 	* Se abre la conexion con el servidor, pasando el nombre del ordenador
@@ -23,6 +18,8 @@ main ()
 	* estamos corriendo. Esta dado de alta en /etc/hosts
 	* "cpp_java" es un servicio dado de alta en /etc/services
 	*/
+	int i = 1;
+	do{
 	Socket_Con_Servidor = Abre_Conexion_Inet ("localhost", "cpp_java");
 	if (Socket_Con_Servidor == 1)
 	{
@@ -34,22 +31,32 @@ main ()
 	* Se prepara una cadena con 5 caracteres y se envia, 4 letras mas
 	* el \0 que indica fin de cadena en C
 	*/
-	strcpy (Cadena, "Hola");
-	Escribe_Socket (Socket_Con_Servidor, Cadena, 5);
+	
+	    printf("Introdusca la direccion");
+		scanf("%s",mensaje);
+		strcpy (Cadena, mensaje);
+	
+		Escribe_Socket (Socket_Con_Servidor, Cadena, 100);
 
-	/*
-	* Se lee la informacion enviada por el servidor, que se supone es
-	* una cadena de 6 caracteres.
-	*/
-	Lee_Socket (Socket_Con_Servidor, Cadena, 6);
+		/*
+		* Se lee la informacion enviada por el servidor, que se supone es
+		* una cadena de 6 caracteres.
+		*/
+		Lee_Socket (Socket_Con_Servidor, Cadena, 100);
 
-	/*
-	* Se escribe en pantalla la informacion recibida del servidor
-	*/
-	printf ("Soy cliente, He recibido : %s\n", Cadena);
-
+		/*
+		* Se escribe en pantalla la informacion recibida del servidor
+		*/
+		printf ("Soy cliente, He recibido : %s\n", Cadena);
+		printf("Quiere segir activo el servidor ??\n 1/Si o 0/No:");
+		scanf("%d",&i);
+		
+	
+	
 	/*
 	* Se cierra el socket con el servidor
 	*/
+	
 	close (Socket_Con_Servidor);
+	} while(i!=0);
 }

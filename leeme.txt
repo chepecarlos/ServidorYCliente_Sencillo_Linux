@@ -12,7 +12,7 @@ siguientes pasos:
 1. Con permiso de root editar el fichero /etc/services y añadir una linea,
 del mismo estilo de las que ya hay, que ponga
 
-cpp_java    tcp/15557
+cpp_java    15557/tcp
 
 
 siendo 15557 cualquier numero que no exista ya en el fichero y que sea

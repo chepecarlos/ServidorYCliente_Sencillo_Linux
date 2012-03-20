@@ -11,6 +11,7 @@ main ()
 	*/
 	int Socket_Servidor;
 	int Socket_Cliente;
+	int Dato;
 	char Cadena[100];
 
 	/*
@@ -25,7 +26,7 @@ main ()
 	}
 	int i;
 	for(i=1;;i++){
-		printf ("Esta es la ves %i de la conexion\n", i);	
+		printf ("Estado de espera, esperando la peticion numero  %i\n", i);	
 	
 	/*
 	* Se espera un cliente que quiera conectarse
@@ -48,13 +49,10 @@ main ()
 	* Se escribe en pantalla la informacion que se ha recibido del
 	* cliente
 	*/
-	printf ("Soy Servior, he recibido : %s\n", Cadena);
+	printf ("La peticion es de contar el archivo: %s\n", Cadena);
 
-	/*
-	* Se prepara una cadena de texto para enviar al cliente. La longitud
-	* de la cadena es 5 letras + \0 al final de la cadena = 6 caracteres
-	*/
-	strcpy (Cadena, "Adios");
+	Dato = Contador_Archivos(Cadena);
+	printf ("El numero lineas es de: %i\n",Dato);	strcpy (Cadena, "Listo");
 	Escribe_Socket (Socket_Cliente, Cadena, 100);
 	
 	/*

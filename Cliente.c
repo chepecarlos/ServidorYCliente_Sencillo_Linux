@@ -20,7 +20,7 @@ main ()
 	*/
 	int i = 1;
 	do{
-	Socket_Con_Servidor = Abre_Conexion_Inet ("localhost", "cpp_java");
+	Socket_Con_Servidor = Abre_Conexion_Inet ("localhost", "c_alsw");
 	if (Socket_Con_Servidor == 1)
 	{
 		printf ("No puedo establecer conexion con el servidor\n");
@@ -32,7 +32,7 @@ main ()
 	* el \0 que indica fin de cadena en C
 	*/
 	
-	    printf("Introdusca la direccion");
+	    printf("Nombre Archivo:");
 		scanf("%s",mensaje);
 		strcpy (Cadena, mensaje);
 	

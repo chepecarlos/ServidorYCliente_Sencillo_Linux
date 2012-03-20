@@ -2,6 +2,7 @@
 #include <Socket.h>
 #include <string.h>
 #include <stdio.h>
+#include <Lee_Archivos.h>
 
 main ()
 {
@@ -16,7 +17,7 @@ main ()
 	* Se abre el socket servidor, con el servicio "cpp_java" dado de
 	* alta en /etc/services.
 	*/
-	Socket_Servidor = Abre_Socket_Inet ("cpp_java");
+	Socket_Servidor = Abre_Socket_Inet ("c_alsw");
 	if (Socket_Servidor == -1)
 	{
 		printf ("No se puede abrir socket servidor\n");

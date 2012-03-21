@@ -11,7 +11,7 @@ main ()
 	*/
 	int Socket_Servidor;
 	int Socket_Cliente;
-	int Dato;
+	int Dato[3];
 	char Cadena[100];
 
 	/*
@@ -51,8 +51,9 @@ main ()
 	*/
 	printf ("La peticion es de contar el archivo: %s\n", Cadena);
 
-	Dato = Contador_Archivos(Cadena);
-	printf ("El numero lineas es de: %i\n",Dato);	strcpy (Cadena, "Listo");
+	Contador_Archivos(Cadena,Dato);
+	printf ("El numero lineas es de: %i\n",Dato[1]);	
+	strcpy (Cadena, "Listo");
 	Escribe_Socket (Socket_Cliente, Cadena, 100);
 	
 	/*

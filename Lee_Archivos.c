@@ -4,17 +4,17 @@
 int Contador_Archivos (char *Nombre,int  *Salida[3]){
 	
 	FILE *SuperDocumento;
-	int y;
-	int i=0;//numero de lineas
-	int j=0;//numero de palabras
-	int k=-1;//numero de letras
+	int y=0;
+	int i= 0;//numero de lineas
+	int j= 0;//numero de palabras
+	int k= 0;//numero de letras
 	char buffer[100];
 	SuperDocumento=fopen(Nombre, "r");
 	 if (SuperDocumento == NULL){
         printf("El archivo no existe \n");
 		}
 	else{
-		for(i=0;feof(SuperDocumento) == 0;i++){
+		for(i=-1;feof(SuperDocumento) == 0;i++){
 			fgets(buffer, 500 ,SuperDocumento);
 			for(y=0; buffer[y]!='\0'; y++){
 				if(buffer[y]==' ' || buffer[y]=='\n'){
@@ -24,7 +24,23 @@ int Contador_Archivos (char *Nombre,int  *Salida[3]){
 				}
 			}
 		fclose(SuperDocumento);
+		/*
+		j=0;
+		
+		SuperDocumento=fopen(Nombre, "r");
+		for(k=0;feof(SuperDocumento) == 0;i++){
+			fgets(buffer, 1 ,SuperDocumento);
+			for(y=0; buffer[y]!='\0'; y++){
+				if(buffer[y]==' ' || buffer[y]=='\n'){
+					j++;
+					}
+				}
+			}
+		fclose(SuperDocumento);
+		*/
 		}
+		k = k-4;
+		j=j-1;
 	printf ("numero de lineas %i\n",i);
 	printf ("numero de palabras %i\n",j);
 	printf ("numero de caracteres %i\n",k);

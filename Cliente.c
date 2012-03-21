@@ -9,6 +9,7 @@ main ()
 	*/
 	int Socket_Con_Servidor;
 	char Cadena[100];
+	char CadenaVerificacion;
 	char mensaje[100];
 
 	/*
@@ -26,31 +27,23 @@ main ()
 		printf ("No puedo establecer conexion con el servidor\n");
 		exit (-1);
 	}
-
-	/*
-	* Se prepara una cadena con 5 caracteres y se envia, 4 letras mas
-	* el \0 que indica fin de cadena en C
-	*/
-	
 	    printf("Nombre Archivo:");
 		scanf("%s",mensaje);
 		strcpy (Cadena, mensaje);
-	
+	    CadenaVerificacion = *mensaje;
 		Escribe_Socket (Socket_Con_Servidor, Cadena, 100);
 		
 		Lee_Socket (Socket_Con_Servidor, Cadena, 100);
-		printf ("Soy cliente, He recibido : %s\n", Cadena);
+		printf ("Cantidad de lineas: %s\n", Cadena);
 		
 		Lee_Socket (Socket_Con_Servidor, Cadena, 100);
-		printf ("Soy cliente, He recibido : %s\n", Cadena);
+		printf ("Cantidad de palabras: %s\n", Cadena);
 		
 		Lee_Socket (Socket_Con_Servidor, Cadena, 100);
-		printf ("Soy cliente, He recibido : %s\n", Cadena);
-		
-		printf("Quiere segir activo el servidor ??\n 1/Si o 0/No:");
+		printf ("Cantidad de Caracteres: %s\n", Cadena);
+			
+		printf("Quiere enviar otra peticion ??\n 1/Si o 0/No:");
 		scanf("%d",&i);
-		
-	
 	
 	/*
 	* Se cierra el socket con el servidor
@@ -58,4 +51,5 @@ main ()
 	
 	close (Socket_Con_Servidor);
 	} while(i!=0);
+	close (Socket_Con_Servidor);
 }

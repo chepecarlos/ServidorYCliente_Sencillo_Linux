@@ -15,7 +15,7 @@ main ()
 	char Cadena[100];
 
 	/*
-	* Se abre el socket servidor, con el servicio "cpp_java" dado de
+	* Se abre el socket servidor, con el servicio "c_alsw" dado de
 	* alta en /etc/services.
 	*/
 	Socket_Servidor = Abre_Socket_Inet ("c_alsw");
@@ -52,7 +52,7 @@ main ()
 	printf ("La peticion es de contar el archivo: %s\n", Cadena);
 
 	Contador_Archivos(Cadena,Dato);
-	printf ("El numero lineas es de: %i\n",Dato[1]);
+	//printf ("El numero lineas es de: %i\n",Dato[1]);
 	g_itoa(Dato[0],Cadena);	
 	Escribe_Socket (Socket_Cliente, Cadena, 100);
 	

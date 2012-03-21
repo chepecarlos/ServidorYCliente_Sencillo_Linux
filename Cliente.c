@@ -37,17 +37,16 @@ main ()
 		strcpy (Cadena, mensaje);
 	
 		Escribe_Socket (Socket_Con_Servidor, Cadena, 100);
-
-		/*
-		* Se lee la informacion enviada por el servidor, que se supone es
-		* una cadena de 6 caracteres.
-		*/
+		
 		Lee_Socket (Socket_Con_Servidor, Cadena, 100);
-
-		/*
-		* Se escribe en pantalla la informacion recibida del servidor
-		*/
 		printf ("Soy cliente, He recibido : %s\n", Cadena);
+		
+		Lee_Socket (Socket_Con_Servidor, Cadena, 100);
+		printf ("Soy cliente, He recibido : %s\n", Cadena);
+		
+		Lee_Socket (Socket_Con_Servidor, Cadena, 100);
+		printf ("Soy cliente, He recibido : %s\n", Cadena);
+		
 		printf("Quiere segir activo el servidor ??\n 1/Si o 0/No:");
 		scanf("%d",&i);
 		

@@ -52,10 +52,15 @@ main ()
 	printf ("La peticion es de contar el archivo: %s\n", Cadena);
 
 	Contador_Archivos(Cadena,Dato);
-	printf ("El numero lineas es de: %i\n",Dato[1]);	
-	strcpy (Cadena, "Listo");
+	printf ("El numero lineas es de: %i\n",Dato[1]);
+	g_itoa(Dato[0],Cadena);	
 	Escribe_Socket (Socket_Cliente, Cadena, 100);
 	
+	g_itoa(Dato[1],Cadena);	
+	Escribe_Socket (Socket_Cliente, Cadena, 100);
+	
+	g_itoa(Dato[2],Cadena);	
+	Escribe_Socket (Socket_Cliente, Cadena, 100);
 	/*
 	* Se cierran los sockets
 	*/

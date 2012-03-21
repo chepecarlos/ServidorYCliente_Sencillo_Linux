@@ -33,3 +33,18 @@ int Contador_Archivos (char *Nombre,int  *Salida[3]){
 	Salida[2] = k;	
 	return Salida[3];
 }
+
+char* g_itoa(int num, char *numero){
+	int pivote, usando, i;
+	for(i=0;i<4;i++){
+		if(i==0)usando=1000;
+		else if(i==1)usando = 100;
+		else if(i==2)usando = 10;
+		else if(i==3)usando = 1;
+		pivote = num%usando;
+		numero[i] = ((num-pivote)/usando) + 48;
+		num = pivote;
+    }
+    numero[4]='\0';
+    return numero;
+}

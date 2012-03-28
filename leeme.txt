@@ -1,6 +1,5 @@
-Instrucciones para ejecución del ejemplo servidor/cliente
-
-En los ficheros adjuntos hay un pequeño programa Servidor y un Cliente.
+Instrucciones para ejecución del ejemplo servidor/cliente que cuenta
+la cantidad de caracteres, palabras, lineas de un archivo de texto.
 
 Para ejecutar los programas en entorno linux, hay que seguir los 
 siguientes pasos:
@@ -10,7 +9,6 @@ siguientes pasos:
 del mismo estilo de las que ya hay, que ponga
 
 c_alsw    15557/tcp
-
 
 siendo 15557 cualquier numero que no exista ya en el fichero y que sea
 entre 5000 y 65635.
@@ -34,5 +32,9 @@ Desde otra, arrancar el Cliente
 
 $ ./Cliente
 
-Veremos como cada programa escribe en pantalla la cadena que recibe del
-otro.
+Ingresamos el nombre del archivo de texto
+
+Nombre Archivo:
+
+Archivo de ejemplo hola.txt
+y En el servidor como en cliente se encuentra la informacion

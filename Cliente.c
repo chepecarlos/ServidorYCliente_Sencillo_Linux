@@ -17,7 +17,7 @@ main ()
 	* y el servicio solicitado.
 	* "localhost" corresponde al nombre del mismo ordenador en el que
 	* estamos corriendo. Esta dado de alta en /etc/hosts
-	* "cpp_java" es un servicio dado de alta en /etc/services
+	* "c_alsw" es un servicio dado de alta en /etc/services
 	*/
 	int i = 1;
 	do{

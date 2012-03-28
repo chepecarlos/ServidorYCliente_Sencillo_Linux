@@ -1,12 +1,25 @@
-all : Socket.o Socket_Servidor.o Socket_Cliente.o Lee_Archivos.o Servidor Cliente
+.PHONY: all
+all : Servidor Cliente
 
-CPPFLAGS = -g -I.
+SRCFLAGS = -Wall -c
+BINFLAGS = -Wall -Wno-unused-function
 
-Servidor : Servidor.c
-	cc -g -I. Socket.o Lee_Archivos.c Socket_Servidor.o Servidor.c -o Servidor
+Lee_Archivos.o : Lee_Archivos.c
+Socket.o:  Socket.c
+Socket_Cliente.o : Socket_Cliente.c
+Socket_Servidor.o : Socket_Servidor.c
+Servidor.o : Servidor.c Socket_Servidor.h Lee_Archivos.h
+Cliente.o : Cliente.c Socket_Cliente.h Socket.h
 
-Cliente : Cliente.c
-	cc -g -I. Socket.o Socket_Cliente.o Cliente.c -o Cliente
+%.o :
+	gcc $(SRCFLAGS) $< -o $@
 
+Servidor: Socket.o Lee_Archivos.o Servidor.o Socket_Servidor.o
+	gcc $(BINFLAGS) $^ -o $@
+
+Cliente: Socket.o Socket_Cliente.o Cliente.o
+	gcc $(BINFLAGS) $^ -o $@
+
+.PHONY: clean
 clean :
 	rm *.o Cliente Servidor

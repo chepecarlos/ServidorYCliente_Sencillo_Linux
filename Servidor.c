@@ -1,8 +1,8 @@
-#include <Socket_Servidor.h>
-#include <Socket.h>
+#include "Socket_Servidor.h"
+#include "Socket.h"
 #include <string.h>
 #include <stdio.h>
-#include <Lee_Archivos.h>
+#include "Lee_Archivos.h"
 
 main ()
 {
